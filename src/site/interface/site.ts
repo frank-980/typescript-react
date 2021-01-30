@@ -5,6 +5,8 @@ export interface ISiteProps{
     changeToAny:any;
     setWidth:any;
     location:any;
+    history:any;
+    match:any;
 }
 
 export interface ISiteState{

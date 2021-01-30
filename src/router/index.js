@@ -13,20 +13,20 @@ import RadioPage from '../site/pages/Radio'
 import TablePage from '../site/pages/Table'
 function AppRouter(props) {
   return (
-
-    <Switch>
-      <Route exact path='/button' render={(props)=><Layout {...props}><ButtonPage/></Layout>}/>
-      <Route exact path='/icon' render={(props)=><Layout {...props}><IconPage/></Layout>}/>
-      <Route exact path='/index' render={(props)=><Layout {...props}><p>23</p></Layout>}/>
-      <Route exact path='/divider' render={(props)=><Layout {...props}><DividerPage/></Layout>}/>
-      <Route exact path='/grid' render={(props)=><Layout {...props}><GridPage/></Layout>}/>
-      <Route exact path='/select' render={(props)=><Layout {...props}><SelectPage></SelectPage></Layout>}/>
-      <Route exact path='/checkbox' render={(props)=><Layout {...props}><CheckboxPage/></Layout>}/>
-      <Route exact path='/radio' render={(props)=><Layout {...props}><RadioPage/></Layout>}/>
-      <Route exact path='/input' render={(props)=><Layout {...props}><InputPage/></Layout>}/>
-      <Route exact path='/table' render={(props)=><Layout {...props}><TablePage/></Layout>}/>
-      <Redirect to="button"/>
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route exact path='/button' component={ButtonPage}/>
+        <Route exact path='/icon' component={IconPage}/>
+        <Route exact path='/divider' component={DividerPage}/>
+        <Route exact path='/grid' component={GridPage}/>
+        <Route exact path='/select' component={SelectPage}/>
+        <Route exact path='/checkbox' component={CheckboxPage}/>
+        <Route exact path='/radio' component={RadioPage}/>
+        <Route exact path='/input' component={InputPage}/>
+        <Route exact path='/table' component={TablePage}/>
+        <Redirect to="button"/>
+      </Switch>
+    </Layout>
 
   );
 }

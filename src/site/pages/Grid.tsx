@@ -1,4 +1,4 @@
-import Document from '../layout/content/Document'
+import Document from '../components/content'
 import React,{useState} from 'react'
 import {IBrief, Icontent, Iprops} from '../interface/document'
 import Button from '../../components/Button/button'

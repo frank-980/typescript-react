@@ -1,7 +1,7 @@
 import React from 'react';
 import Brief from './Brief'
-import Content from './content'
-import Bottom from './Params'
+import Content from './demoList'
+import Params from './Params'
 import {IDoc} from '../../interface/document'
 const Document:React.FC<IDoc> = (props:IDoc)=>{
     const {document} = props
@@ -9,7 +9,7 @@ const Document:React.FC<IDoc> = (props:IDoc)=>{
         <div className="contentInner">
             <Brief {...document.brief}/>
             <Content content={document.content}/>
-            <Bottom bottom={document.api}/>
+            <Params bottom={document.api}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import Document from '../layout/content/Document'
+import Document from '../components/content'
 import {Input,AutoComplete} from '../../components/Input'
 import {Select,Option} from '../../components/Select'
 import Table from '../../components/Table'

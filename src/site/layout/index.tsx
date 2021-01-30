@@ -4,19 +4,17 @@ import { connect } from 'react-redux';
 import routeInfo from './hooks/routeInfo'
 import useScreenWidth from './hooks/useScreenWidth'
 import Header from './header'
-import LeftNav from './leftNav'
+import SiderBar from './SiderBar'
 import Footer from './footer'
 import {ISiteProps,ISiteState} from '../interface/site'
-
-enum route {"/404","/button", "/icon", "/divider"=34,"/grid", "/select","/list","/input", Thu, Fri, Sat};
-
-const Site:React.FC<ISiteProps> = (props:ISiteProps)=>{
-    const {isShow,changeToAny,children,location,width,setWidth} = props
-    /* current router change */
-        const Active:number = parseInt(route[location.pathname])
-        const currentLocation = location.pathname
+import {useLocation} from 'react-router-dom'
+import CSST from "./CSST"
+const Site:React.FC = (props:any)=>{
+    const {isShow,changeToAny,children,width,setWidth} = props
+    let location = useLocation();
+    console.log("layout加载了")
     /* screen size change */
-        window.onresize=function(){  
+        window.onresize=function(){
             setWidth(window.innerWidth)
         }
         const dynStyle = useScreenWidth(width,[width])
@@ -28,6 +26,7 @@ const Site:React.FC<ISiteProps> = (props:ISiteProps)=>{
                 isFirst.current=false
                 return
             }
+            
             changeToAny("changeToTrue")
         },[children])
     /* end */
@@ -35,13 +34,9 @@ const Site:React.FC<ISiteProps> = (props:ISiteProps)=>{
         <div className="wrapper">
             <Header/>
             <div className="main container">
-                <LeftNav routeActive={currentLocation} changeToAny={changeToAny} width={dynStyle.width}/>
+                <SiderBar changeToAny={changeToAny} width={dynStyle.width}/>
                 <div className="contentbar" style={{padding:dynStyle.padding}}>
-                    <CSSTransition in={isShow} timeout={1000} classNames="star">
-
-                            {children}
-
-                    </CSSTransition>
+                    <CSST isShow={isShow} changeToAny={changeToAny} children={children}/>
                     <Footer/>
                 </div>
             </div>

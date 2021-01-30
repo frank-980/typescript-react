@@ -1,6 +1,5 @@
 export interface ISideProps{
     changeToAny:any;
-    routeActive:string;
     width:number;
 }
 

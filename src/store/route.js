@@ -1,4 +1,5 @@
 const routeInfo = (state={isShow:false} , action) => {
+  console.log(action.type,state)
     switch (action.type) {
       case 'changeToFalse':
           return {...state,isShow:false}
