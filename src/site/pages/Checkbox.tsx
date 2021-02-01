@@ -2,9 +2,7 @@ import Document from '../components/content'
 import React,{useState} from 'react'
 import {IBrief, Icontent, Iprops} from '../interface/document'
 import Button from '../../components/Button/button'
-import {Select,Option} from '../../components/Select'
 import {Checkbox ,CheckboxGroup} from '../../components/Checkbox'
-import Icon from '../../components/Icon'
 import Divider from '../../components/Divider'
 import Table from '../../components/Table'
 const CheckboxPage:React.FC = ()=>{
@@ -27,7 +25,6 @@ const CheckboxPage:React.FC = ()=>{
         </>
     }
     const [checked,setChecked] = useState(false)
-    const [checked2,setChecked2] = useState(false)
     const [disabled,setDisabled] = useState(false)
     const [checkedList, setCheckedList] = useState(['Apple']);
     const [indeterminate, setIndeterminate] = React.useState(true);

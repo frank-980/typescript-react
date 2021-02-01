@@ -1,7 +1,6 @@
 import Document from '../components/content'
-import React,{useState} from 'react'
+import React from 'react'
 import {IBrief, Icontent, Iprops} from '../interface/document'
-import Button from '../../components/Button/button'
 import Icon from '../../components/Icon'
 import Table from '../../components/Table'
 const ButtonPage:React.FC = ()=>{

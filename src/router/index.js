@@ -1,33 +1,21 @@
-import React from 'react';
-import {Switch,Route,Redirect} from 'react-router-dom'
-import Layout from '../site/layout'
-import ButtonPage from '../site/pages/Button'
-import Index from '../site/pages/Index'
-import SelectPage from '../site/pages/Select'
-import InputPage from '../site/pages/Input'
-import IconPage from '../site/pages/Icon'
-import GridPage from '../site/pages/Grid'
-import DividerPage from '../site/pages/Divider'
-import CheckboxPage from '../site/pages/Checkbox'
-import RadioPage from '../site/pages/Radio'
-import TablePage from '../site/pages/Table'
-function AppRouter(props) {
+import {Switch,Route,Redirect,useLocation} from 'react-router-dom'
+import sidebar from './router'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+function AppRouter() {
+  let location = useLocation()
   return (
-    <Layout>
-      <Switch>
-        <Route exact path='/button' component={ButtonPage}/>
-        <Route exact path='/icon' component={IconPage}/>
-        <Route exact path='/divider' component={DividerPage}/>
-        <Route exact path='/grid' component={GridPage}/>
-        <Route exact path='/select' component={SelectPage}/>
-        <Route exact path='/checkbox' component={CheckboxPage}/>
-        <Route exact path='/radio' component={RadioPage}/>
-        <Route exact path='/input' component={InputPage}/>
-        <Route exact path='/table' component={TablePage}/>
-        <Redirect to="button"/>
-      </Switch>
-    </Layout>
-
+      <TransitionGroup className={'router-wrapper'}>
+        <CSSTransition timeout={700} classNames="star" key={location.pathname}> 
+          <Switch>    
+            { sidebar.map((item)=>{
+              return item.children.map(item2=>{
+                return ( <Route exact path={item2.path} component={item2.component}/> )
+              })
+            }) } 
+            <Redirect to="button"/>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
   );
 }
 export default AppRouter;

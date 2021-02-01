@@ -263,8 +263,6 @@ import { Button } from 'sxdui'
             <h2>Button 参数</h2>
             <Table data={data} columns={columns} />
         </div>
-      
-      
     const document:Iprops = {
         brief:brief,
         content:items,

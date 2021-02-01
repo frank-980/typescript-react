@@ -1,10 +1,7 @@
 import Document from '../components/content'
 import React,{useState} from 'react'
 import {IBrief, Icontent, Iprops} from '../interface/document'
-import Button from '../../components/Button/button'
 import {Select,Option} from '../../components/Select'
-
-import Icon from '../../components/Icon'
 import Table from '../../components/Table'
 const RadioPage:React.FC = ()=>{
     const brief:IBrief={
@@ -24,10 +21,6 @@ const RadioPage:React.FC = ()=>{
         </div>
         <h2>代码演示</h2>
         </>
-    }
-    const [loading,setLoading] = useState(false)
-    const valueChange=(val:any)=>{
-        console.log(val)
     }
     const items:Icontent[]=[
         {

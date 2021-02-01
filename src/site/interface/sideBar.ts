@@ -1,5 +1,4 @@
 export interface ISideProps{
-    changeToAny:any;
     width:number;
 }
 
